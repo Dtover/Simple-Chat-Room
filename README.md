@@ -1,11 +1,11 @@
-### A simple Chat Room wrote with python
+### A simple Chat Room written in python
 *This is my course design of subject "Network Programming"*
 
 #### Dependences
 > pyqt5, mysql   
 
 #### Before running 
- + you should change the value of **conn** in the Login.py in order to connect to your database.   
+ + You should change the value of **conn** in the Login.py in order to connect to your database.   
  + Besides, you ought to have a table called **userinfo** with column **name** and **pwd**.
 
 

@@ -12,10 +12,10 @@ isconnectserver = False
 messagelist = Queue()
 
 class Client(QDialog):
-    def __init__(self, user_name):
+    def __init__(self, username):
         super(Client, self).__init__()
         self.UI()
-        self.user_name = user_name
+        self.username = username
         self.ChatInfo
         self.styleComboBox
 
@@ -196,7 +196,7 @@ class Client(QDialog):
         if isconnectserver:
             try:
                 msg = Msg_Line.text()
-                msg = time.strftime("%m-%d %H:%M:%S ", time.localtime()) + self.user_name + " : " + msg
+                msg = time.strftime("%m-%d %H:%M:%S ", time.localtime()) + self.username + " : " + msg
                 messagelist.put(msg)
                 Msg_Line.setText("")
             except IOError as e:

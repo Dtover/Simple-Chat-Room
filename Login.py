@@ -3,7 +3,6 @@ import pymysql.cursors
 
 class Login():
     def __init__(self, parent = None):
-        self.username = ""
         self.conn = pymysql.connect(
             host = 'localhost',
             user = 'dreamlocker',
@@ -52,6 +51,4 @@ class Login():
             print(e)
         # finally:
             # self.conn.close()
-
-
 
