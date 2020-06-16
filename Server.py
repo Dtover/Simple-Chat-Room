@@ -178,7 +178,7 @@ class Server(QDialog):
             self.ClientInfoText.appendPlainText("Server stopped!")
         else:
             self.ClientInfoText.appendPlainText("No server running!")
-        self.destroy()
+        self.close()
 
 class StartThread(QtCore.QThread):
     ChatInfoUpdate = QtCore.pyqtSignal(str)

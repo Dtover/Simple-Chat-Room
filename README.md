@@ -6,13 +6,13 @@
 
 #### Before running 
  + You should change the value of **conn** in the Login.py in order to connect to your database.   
- + Besides, you ought to have a table called **userinfo** with column **name** and **pwd**.
+ + Besides, your database must have a table called **userinfo** with column **name** and **pwd**.
 
 
 #### How to run
 >First of all, start mysql  
->For Clients: python3 LoginUI.py  
 >For Server: python3 Server.py
+>For Clients: python3 LoginUI.py  
 
 #### Preview
 

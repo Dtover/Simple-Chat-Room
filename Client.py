@@ -14,8 +14,8 @@ messagelist = Queue()
 class Client(QDialog):
     def __init__(self, username):
         super(Client, self).__init__()
-        self.UI()
         self.username = username
+        self.UI()
         self.ChatInfo
         self.styleComboBox
 
@@ -52,12 +52,14 @@ class Client(QDialog):
 
         # Create Child Widgets
         self.createIpPortPart()
-        self.CreateChatPart()
+        self.createChatPart()
+        self.createUserInfoPart()
 
         mainLayout = QGridLayout()
         mainLayout.addLayout(toplayout, 0, 0, 1, 2)
-        mainLayout.addWidget(self.IpPortPart, 1, 0)
-        mainLayout.addWidget(self.ChatPart, 2, 0)
+        mainLayout.addWidget(self.UserInfoPart, 1, 0)
+        mainLayout.addWidget(self.IpPortPart, 2, 0)
+        mainLayout.addWidget(self.ChatPart, 3, 0)
         self.setLayout(mainLayout)
         mainLayout.setRowStretch(1, 0)
         mainLayout.setRowStretch(2, 1)
@@ -111,6 +113,21 @@ class Client(QDialog):
             white_palette = QPalette()
             self.setPalette(white_palette)
 
+    def createUserInfoPart(self):
+        self.UserInfoPart = QGroupBox("User Information")
+        Username = QLabel("Username: " + self.username)
+        Loginout_Button = QPushButton("Quit")
+        Loginout_Button.setFixedWidth(100)
+        Loginout_Button.clicked.connect(self.login_out)
+        Loginout_Button.setAutoDefault(False)
+        layout = QGridLayout()
+        layout.addWidget(Username, 0, 0)
+        layout.addWidget(Loginout_Button, 0 ,1)
+        self.UserInfoPart.setLayout(layout)
+
+    def login_out(self):
+        self.close()
+
     def createIpPortPart(self):
         self.IpPortPart = QGroupBox("Connect to server")
 
@@ -147,7 +164,7 @@ class Client(QDialog):
         layout.setColumnStretch(1, 1)
         self.IpPortPart.setLayout(layout)
 
-    def CreateChatPart(self):
+    def createChatPart(self):
         self.ChatPart = QGroupBox("Chat box")
         global Msg_Line
         global Send_Button

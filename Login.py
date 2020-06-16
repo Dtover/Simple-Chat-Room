@@ -49,6 +49,3 @@ class Login():
                 return result
         except Exception as e:
             print(e)
-        # finally:
-            # self.conn.close()
-

@@ -61,10 +61,10 @@ class LoginUI(QDialog, Login.Login):
         passwdlayout.addWidget(passwd_line)
         login_button = QPushButton("Login")
         login_button.setFixedWidth(100)
-        login_button.clicked.connect(lambda : self.login_handle(name_line.text(), passwd_line.text()))
+        login_button.clicked.connect(lambda : self.login_handler(name_line.text(), passwd_line.text()))
         sign_button = QPushButton("Sign up")
         sign_button.setFixedWidth(100)
-        sign_button.clicked.connect(lambda : self.signup_handle(name_line.text(), passwd_line.text()))
+        sign_button.clicked.connect(lambda : self.signup_handler(name_line.text(), passwd_line.text()))
         buttonlayout = QHBoxLayout()
         buttonlayout.addWidget(login_button)
         buttonlayout.addWidget(sign_button)
@@ -154,7 +154,7 @@ class LoginUI(QDialog, Login.Login):
             white_palette = QPalette()
             self.setPalette(white_palette)
 
-    def login_handle(self, username, passwd):
+    def login_handler(self, username, passwd):
         result = self.login(username, passwd)
         if result == "Miss":
             self.alert.setText('Input missing !')
@@ -171,7 +171,7 @@ class LoginUI(QDialog, Login.Login):
             self.alert.setText('Wrong password !')
             self.alert.exec_()
 
-    def signup_handle(self, username, passwd):
+    def signup_handler(self, username, passwd):
         result = self.sign_up(username, passwd)
         if result == "Miss":
             self.alert.setText('Input missing !')
