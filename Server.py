@@ -152,6 +152,7 @@ class Server(QDialog):
 
         self.ClientInfo = QGroupBox("Client Information")
         self.ClientInfoText = QPlainTextEdit()
+        self.ClientInfoText.setFixedHeight(200)
         layout = QGridLayout()
         layout.addWidget(self.ClientInfoText)
         self.ClientInfo.setLayout(layout)
@@ -205,10 +206,6 @@ class StartThread(QtCore.QThread):
             recv_data = client_socket.recv(1024)
             if len(recv_data) > 0:
                 self.ChatInfoUpdate.emit(recv_data.decode('utf-8'))
-            # if recv_data.decode('utf-8').endswith('bye'):
-                # client_sockets.remove(client_socket)
-                # client_socket.close()
-                # break
             for client_socket in client_sockets:
                 client_socket.send(recv_data)
 
@@ -218,4 +215,4 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     server = Server()
     server.show()
-    sys.exit(app.exec_()) 
+    sys.exit(app.exec_())

@@ -169,6 +169,7 @@ class Client(QDialog):
         global Msg_Line
         global Send_Button
         self.ChatInfo = QPlainTextEdit()
+        self.ChatInfo.setFixedHeight(200)
         Msg_Line = QLineEdit()
         Send_Button = QPushButton("Send")
         Send_Button.clicked.connect(self.putMsg)
